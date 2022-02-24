@@ -12,9 +12,9 @@
         android:orientation="vertical"
         android:layout_gravity="center">
         <ImageView
-            android:layout_width="139dp"
-            android:layout_height="119dp"
-            android:src="@drawable/rimender"
+            android:layout_width="230dp"
+            android:layout_height="140dp"
+            android:src="@drawable/logo2"
             android:layout_gravity="center"
             android:layout_marginTop="35dp" />
 
@@ -92,6 +92,7 @@
                 android:background="@drawable/bg_button"
                 android:layout_gravity="center"
                 android:layout_marginTop="40dp"
+                android:onClick="login"
                />
 
 
