@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Reminder</string>
+    <string name="namaUserLogin">Hi, Fighoz</string>
+    <string name="judulAgenda">Membaca Yasin</string>
+    <!--    <string name="judulAgendaToday">Sholat Jumat</string>-->
+    <!--    <string name="judulAgendaYesterday">Sholat Dhuha</string>-->
+    <!--    <string name="judulAgendaTomorrow">Ekskul Pramuka</string>-->
+    <string name="waktuAgenda">07:00</string>
+</resources>

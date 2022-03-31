@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/hijauTua"
+    tools:context=".LoginActivity">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_gravity="center">
+        <ImageView
+            android:layout_width="230dp"
+            android:layout_height="140dp"
+            android:src="@drawable/logo2"
+            android:layout_gravity="center"
+            android:layout_marginTop="35dp" />
+
+        <TextView
+            android:layout_width="197dp"
+            android:layout_height="45dp"
+            android:text="LOGIN"
+            android:layout_gravity="center"
+            android:textSize="36sp"
+            android:textAlignment="center"
+            android:gravity="center"
+            android:layout_marginTop="30dp"
+            android:textStyle="normal"
+            android:textFontWeight="400"
+            android:fontFamily="@font/lexend_deca_regular"
+            android:textColor="@color/white"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="44dp"
+            android:layout_marginBottom="35dp"
+            android:orientation="vertical" >
+            <TextView
+                android:layout_width="164dp"
+                android:layout_height="33dp"
+                android:text="Username"
+                android:textStyle="normal"
+                android:textFontWeight="400"
+                android:fontFamily="@font/lexend_deca_regular"
+                android:textColor="@color/white"
+                android:textSize="24dp"
+                android:textAlignment="center"
+                android:layout_gravity="center"
+            />
+            <EditText
+                android:layout_width="310dp"
+                android:layout_height="38dp"
+                android:background="@drawable/bg_edit_text_login"
+                android:layout_gravity="center"
+                android:layout_marginTop="11dp"
+                android:paddingLeft="25px"
+                android:paddingRight="25px"
+                android:textSize="18dp"
+                android:textColor="@color/black"
+                android:fontFamily="@font/poppins_medium"
+                android:inputType="text"
+                android:id="@+id/UsernameField"
+            />
+            <TextView
+                android:layout_width="164dp"
+                android:layout_height="33dp"
+                android:text="Password"
+                android:textStyle="normal"
+                android:textFontWeight="400"
+                android:fontFamily="@font/lexend_deca_regular"
+                android:textColor="@color/white"
+                android:textSize="24dp"
+                android:textAlignment="center"
+                android:layout_gravity="center"
+                android:layout_marginTop="20dp"
+                />
+
+            <EditText
+                android:layout_width="310dp"
+                android:layout_height="38dp"
+                android:background="@drawable/bg_edit_text_login"
+                android:layout_gravity="center"
+                android:layout_marginTop="11dp"
+                android:paddingLeft="25px"
+                android:paddingRight="25px"
+                android:textSize="18dp"
+                android:textColor="@color/black"
+                android:fontFamily="@font/poppins_medium"
+                android:inputType="textPassword"
+                android:id="@+id/PasswordField"
+            />
+            <Button
+                android:layout_width="200dp"
+                android:layout_height="40dp"
+                android:text="LOGIN"
+                android:textStyle="bold"
+                android:textFontWeight="700"
+                android:fontFamily="@font/lexend_deca_regular"
+                android:textColor="@color/black"
+                android:textSize="24dp"
+                android:background="@drawable/bg_button"
+                android:layout_gravity="center"
+                android:layout_marginTop="40dp"
+                android:id="@+id/btnLogin"
+               />
+
+
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

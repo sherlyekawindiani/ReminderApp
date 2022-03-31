@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "451234794151",
+    "firebase_url": "https://reminderapps-9974e-default-rtdb.asia-southeast1.firebasedatabase.app",
+    "project_id": "reminderapps-9974e",
+    "storage_bucket": "reminderapps-9974e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:451234794151:android:c740c4372d23a15638e982",
+        "android_client_info": {
+          "package_name": "com.sherlyeka.reminderapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "451234794151-vvqbfl4mt2pft0mrflk6of4lhrh7sj7p.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.sherlyeka.reminderapp",
+            "certificate_hash": "64eb2302ac63426eae8f7a75bbbcee5240bb209c"
+          }
+        },
+        {
+          "client_id": "451234794151-una7q4su8ju7ilj6jf4io2fd3fpr02fv.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAs6GKCChynTxOIHogxOxzeMi_USkvnrqw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "451234794151-una7q4su8ju7ilj6jf4io2fd3fpr02fv.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
