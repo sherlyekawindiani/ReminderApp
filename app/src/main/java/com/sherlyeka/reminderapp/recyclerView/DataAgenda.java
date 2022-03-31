@@ -1,12 +1,15 @@
 package com.sherlyeka.reminderapp.recyclerView;
 
+import java.sql.Timestamp;
+
 public class DataAgenda {
-     String judulAgenda, hariIni, waktuAgenda;
+     String judulAgenda, hariIni;
+     Timestamp waktuAgenda;
 
     public DataAgenda() {
     }
 
-    public DataAgenda(String judulAgenda, String hariIni, String waktuAgenda) {
+    public DataAgenda(String judulAgenda, String hariIni, Timestamp waktuAgenda) {
         this.judulAgenda = judulAgenda;
         this.hariIni = hariIni;
         this.waktuAgenda = waktuAgenda;
@@ -28,12 +31,8 @@ public class DataAgenda {
         this.hariIni = hariIni;
     }
 
-    public String getWaktuAgenda() {
-        return waktuAgenda;
-    }
+    public Timestamp getWaktuAgenda() { return waktuAgenda; }
 
-    public void setWaktuAgenda(String waktuAgenda) {
-        this.waktuAgenda = waktuAgenda;
-    }
+    public void setWaktuAgenda(Timestamp waktuAgenda) { this.waktuAgenda = waktuAgenda; }
 }
 

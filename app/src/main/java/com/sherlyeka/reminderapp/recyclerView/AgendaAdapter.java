@@ -8,6 +8,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import com.sherlyeka.reminderapp.R;
 import java.util.ArrayList;
+import java.util.Date;
 
 
 public class AgendaAdapter extends RecyclerView.Adapter<AgendaAdapter.ViewHolder> {
@@ -28,7 +29,7 @@ public class AgendaAdapter extends RecyclerView.Adapter<AgendaAdapter.ViewHolder
     public void onBindViewHolder(@NonNull AgendaAdapter.ViewHolder holder, int position) {
         holder.judulAgenda.setText(agendaArrayList.get(position).getJudulAgenda());
         holder.hariIni.setText(agendaArrayList.get(position).getHariIni());
-        holder.waktuAgenda.setText(agendaArrayList.get(position).getWaktuAgenda());
+        holder.waktuAgenda.setText(agendaArrayList.get(position).getWaktuAgenda().toString());
     }
 
     @Override
