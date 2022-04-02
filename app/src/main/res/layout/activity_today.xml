@@ -9,26 +9,34 @@
 
     <RelativeLayout
         android:id="@+id/relativeCardAtas"
-        android:layout_width="379dp"
-        android:layout_height="301dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="16dp"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
         android:background="@drawable/bg_header">
 
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/relativeAtas1"
+        android:layout_width="346dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/relativeCardAtas"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="-150dp"
+        android:background="@drawable/bg_agenda_today_home">
+
         <RelativeLayout
-            android:id="@+id/relativeAtas1"
+            android:id="@+id/relativeAtas2"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="170dp"
             android:layout_centerHorizontal="true"
             android:layout_marginLeft="15dp"
+            android:layout_marginTop="10dp"
             android:layout_marginRight="15dp">
 
             <RelativeLayout
                 android:id="@+id/relatveNamaUser"
                 android:layout_width="wrap_content"
-                android:layout_height="119dp"
+                android:layout_height="wrap_content"
                 android:layout_marginTop="36dp">
 
                 <TextView
@@ -38,30 +46,28 @@
                     android:fontFamily="@font/lexend_deca_regular"
                     android:text="@string/namaUserLogin"
                     android:textColor="@color/white"
-                    android:textFontWeight="400"
+                    android:textFontWeight="600"
                     android:textSize="30dp"
-                    android:textStyle="normal"
-
-                    />
+                    android:textStyle="normal" />
 
                 <TextView
-                    android:layout_width="170dp"
-                    android:layout_height="wrap_content"
+                    android:layout_width="190dp"
+                    android:layout_height="60dp"
                     android:layout_below="@+id/namaUser"
                     android:layout_marginTop="20dp"
                     android:fontFamily="@font/lexend_deca_regular"
                     android:text="Mari Lihat Agenda Hari Ini !!! "
                     android:textAlignment="center"
-                    android:textColor="@color/white"
-                    android:textFontWeight="400"
-                    android:textSize="18dp"
+                    android:textColor="@color/hijauTua"
+                    android:textFontWeight="900"
+                    android:textSize="21dp"
                     android:textStyle="normal" />
             </RelativeLayout>
 
             <RelativeLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="36dp"
+                android:layout_marginTop="20dp"
                 android:layout_toEndOf="@+id/relatveNamaUser">
 
                 <ImageView
@@ -73,95 +79,22 @@
 
         </RelativeLayout>
 
-        <RelativeLayout
-            android:id="@+id/relativeAtas2"
-            android:layout_width="343dp"
-            android:layout_height="86dp"
-            android:layout_below="@+id/relativeAtas1"
-            android:layout_centerHorizontal="true"
-            android:layout_marginLeft="15dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginRight="15dp"
-            android:layout_marginBottom="20dp"
-            android:background="@drawable/bg_agenda_today_home">
-
-            <RelativeLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerHorizontal="true"
-                android:layout_marginTop="16dp"
-                android:layout_marginBottom="16dp">
-
-                <TextView
-                    android:id="@+id/judulAgendaRV"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/lexend_deca_regular"
-                    android:text="@string/judulAgenda"
-                    android:textAlignment="center"
-                    android:textColor="@color/white"
-                    android:textFontWeight="900"
-                    android:textSize="20dp"
-                    android:textStyle="normal" />
-
-                <RelativeLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@+id/judulAgendaRV"
-                    android:layout_marginTop="8dp">
-
-                    <TextView
-                        android:id="@+id/textHariIniRV"
-                        android:layout_width="wrap_content"
-                        android:layout_height="22dp"
-                        android:layout_marginRight="6dp"
-                        android:fontFamily="@font/lexend_deca_regular"
-                        android:text="Hari ini Pukul"
-                        android:textAlignment="center"
-                        android:textColor="@color/white"
-                        android:textFontWeight="900"
-                        android:textSize="18dp"
-                        android:textStyle="normal"
-
-                        />
-
-                    <TextView
-                        android:id="@+id/waktuAgendaRV"
-                        android:layout_width="wrap_content"
-                        android:layout_height="22dp"
-                        android:layout_toRightOf="@+id/textHariIniRV"
-                        android:fontFamily="@font/lexend_deca_regular"
-                        android:text="@string/waktuAgenda"
-                        android:textAlignment="center"
-                        android:textColor="@color/white"
-                        android:textFontWeight="900"
-                        android:textSize="18dp"
-                        android:textStyle="normal"
-
-                        />
-
-                </RelativeLayout>
-
-            </RelativeLayout>
-
-        </RelativeLayout>
-
     </RelativeLayout>
 
     <RelativeLayout
         android:id="@+id/relativeButton"
         android:layout_width="wrap_content"
-        android:layout_height="35dp"
-        android:layout_below="@+id/relativeCardAtas"
+        android:layout_height="40dp"
+        android:layout_below="@+id/relativeAtas1"
         android:layout_centerHorizontal="true"
         android:layout_marginLeft="16dp"
-        android:layout_marginRight="16dp"
-        android:layout_marginTop="15dp">
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="16dp">
 
         <Button
             android:id="@+id/btnYesterday"
             android:layout_width="116dp"
-            android:layout_height="27dp"
+            android:layout_height="match_parent"
             android:background="@drawable/bg_btn_yesterday"
             android:fontFamily="@font/lexend_deca_regular"
             android:onClick="btnYesterday"
@@ -175,7 +108,7 @@
         <Button
             android:id="@+id/btnToday"
             android:layout_width="90dp"
-            android:layout_height="27dp"
+            android:layout_height="match_parent"
             android:layout_marginLeft="9dp"
             android:layout_marginRight="9dp"
             android:layout_toRightOf="@+id/btnYesterday"
@@ -192,7 +125,7 @@
         <Button
             android:id="@+id/btnTomorrow"
             android:layout_width="122dp"
-            android:layout_height="27dp"
+            android:layout_height="match_parent"
             android:layout_toRightOf="@+id/btnToday"
             android:background="@drawable/bg_btn_yesterday"
             android:fontFamily="@font/lexend_deca_regular"
