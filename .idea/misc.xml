@@ -3,6 +3,8 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/05.ProjectAndroidStudio/03.TugasPwpb/ReminderApp/app/src/main/res/drawable/bg_agenda_today_home.xml" value="0.1695" />
+        <entry key="..\:/05.ProjectAndroidStudio/03.TugasPwpb/ReminderApp/app/src/main/res/drawable/bg_header.xml" value="0.1695" />
         <entry key="..\:/05.ProjectAndroidStudio/03.TugasPwpb/ReminderApp/app/src/main/res/layout/activity_today.xml" value="0.20416666666666666" />
         <entry key="..\:/ReminderApp-master/app/src/main/res/drawable/bg_agenda_today_home.xml" value="0.149" />
         <entry key="..\:/ReminderApp-master/app/src/main/res/drawable/bg_btn_yesterday.xml" value="0.149" />
