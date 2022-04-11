@@ -9,20 +9,23 @@
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView_agenda"
         android:layout_width="343dp"
-        android:layout_height="86dp"
-        app:cardBackgroundColor="@color/kuningMuda"
-        app:cardCornerRadius="15dp"
-        android:foreground="?selectableItemBackground"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="15dp"
+        android:layout_marginBottom="15dp"
         android:clickable="true"
-        android:layout_margin="15dp"
-        android:layout_centerHorizontal="true">
+        android:foreground="?selectableItemBackground"
+        app:cardBackgroundColor="@color/kuningMuda"
+        app:cardCornerRadius="15dp">
 
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
             android:layout_marginTop="11dp"
-            android:layout_marginBottom="11dp"
-            android:layout_gravity="center_horizontal">
+            android:layout_marginBottom="11dp">
 
             <TextView
                 android:id="@+id/judulAgendaRV"
@@ -36,12 +39,28 @@
                 android:textFontWeight="700"
                 android:textSize="20sp"
                 android:textStyle="normal" />
+
+            <TextView
+                android:id="@+id/tglAgenda"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/judulAgendaRV"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="8dp"
+                android:fontFamily="@font/lexend_deca_regular"
+                android:text="@string/tglAgenda"
+                android:textAlignment="center"
+                android:textColor="@color/hijauTua"
+                android:textFontWeight="400"
+                android:textSize="15dp"
+                android:textStyle="normal" />
+
             <RelativeLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:layout_below="@+id/judulAgendaRV"
-                android:layout_centerHorizontal="true">
+                android:layout_below="@+id/tglAgenda"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="8dp">
 
                 <TextView
                     android:id="@+id/textHariIniRV"
@@ -76,7 +95,6 @@
             </RelativeLayout>
 
         </RelativeLayout>
-
 
 
     </androidx.cardview.widget.CardView>
