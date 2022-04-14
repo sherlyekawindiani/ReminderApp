@@ -7,14 +7,39 @@
     android:background="#1B4A5A"
     tools:context=".SplashScreenActivity">
 
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="left"
+        android:layout_margin="20dp">
+
+        <ImageView
+            android:id="@+id/logosmk"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_centerInParent="true"
+            android:src="@drawable/logo_smk4" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:layout_centerInParent="true"
+            android:layout_marginLeft="2dp"
+            android:layout_toRightOf="@+id/logosmk"
+            android:fontFamily="@font/lexend_deca_regular"
+            android:gravity="center"
+            android:text="SMKN 4 Malang"
+            android:textColor="@color/white"
+            android:textSize="15sp" />
+
+    </RelativeLayout>
 
     <ImageView
         android:id="@+id/logo"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
-        android:src="@drawable/logo2"
-        />
+        android:src="@drawable/logo2" />
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -26,13 +51,12 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:fontFamily="@font/lexend_deca_regular"
+            android:gravity="center"
             android:text="REMINDER APP"
             android:textColor="@color/white"
-            android:textSize="20sp"
-            android:fontFamily="@font/lexend_deca_regular"
-            android:layout_gravity="bottom"
-            android:gravity="center"
-            />
+            android:textSize="20sp" />
     </RelativeLayout>
 
 
