@@ -41,7 +41,7 @@
                 android:textStyle="normal" />
 
             <TextView
-                android:id="@+id/tglAgenda"
+                android:id="@+id/tanggalAgendaRV"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/judulAgendaRV"
@@ -58,30 +58,14 @@
             <RelativeLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/tglAgenda"
+                android:layout_below="@+id/tanggalAgendaRV"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="8dp">
-
-                <TextView
-                    android:id="@+id/textHariIniRV"
-                    android:layout_width="wrap_content"
-                    android:layout_height="25dp"
-                    android:layout_marginRight="6dp"
-                    android:fontFamily="@font/lexend_deca_regular"
-                    android:text="Hari ini : Pukul"
-                    android:textAlignment="center"
-                    android:textColor="@color/abuAbuMuda"
-                    android:textFontWeight="700"
-                    android:textSize="18sp"
-                    android:textStyle="normal"
-
-                    />
 
                 <TextView
                     android:id="@+id/waktuAgendaRV"
                     android:layout_width="wrap_content"
                     android:layout_height="25dp"
-                    android:layout_toRightOf="@+id/textHariIniRV"
                     android:fontFamily="@font/lexend_deca_regular"
                     android:text="@string/waktuAgenda"
                     android:textAlignment="center"

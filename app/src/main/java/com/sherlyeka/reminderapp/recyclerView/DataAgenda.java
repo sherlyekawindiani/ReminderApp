@@ -1,17 +1,19 @@
 package com.sherlyeka.reminderapp.recyclerView;
 
-import java.sql.Timestamp;
+import com.google.firebase.firestore.ServerTimestamp;
+
+import java.util.Date;
 
 public class DataAgenda {
-     String judulAgenda, hariIni;
-     Timestamp waktuAgenda;
+     String judulAgenda;
+     @ServerTimestamp Date tanggalAgenda, waktuAgenda;
 
     public DataAgenda() {
     }
 
-    public DataAgenda(String judulAgenda, String hariIni, Timestamp waktuAgenda) {
+    public DataAgenda(String judulAgenda, Date tanggalAgenda, Date waktuAgenda) {
         this.judulAgenda = judulAgenda;
-        this.hariIni = hariIni;
+        this.tanggalAgenda = tanggalAgenda;
         this.waktuAgenda = waktuAgenda;
     }
 
@@ -23,16 +25,20 @@ public class DataAgenda {
         this.judulAgenda = judulAgenda;
     }
 
-    public String getHariIni() {
-        return hariIni;
+    public Date getTanggalAgenda() {
+        return tanggalAgenda;
     }
 
-    public void setHariIni(String hariIni) {
-        this.hariIni = hariIni;
+    public void setTanggalAgenda(Date tanggalAgenda) {
+        this.tanggalAgenda = tanggalAgenda;
     }
 
-    public Timestamp getWaktuAgenda() { return waktuAgenda; }
+    public Date getWaktuAgenda() {
+        return waktuAgenda;
+    }
 
-    public void setWaktuAgenda(Timestamp waktuAgenda) { this.waktuAgenda = waktuAgenda; }
+    public void setWaktuAgenda(Date waktuAgenda) {
+        this.waktuAgenda = waktuAgenda;
+    }
 }
 

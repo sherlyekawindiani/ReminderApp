@@ -41,8 +41,8 @@
 
                 <TextView
                     android:id="@+id/namaUser"
-                    android:layout_width="170dp"
-                    android:layout_height="39dp"
+                    android:layout_width="156dp"
+                    android:layout_height="wrap_content"
                     android:fontFamily="@font/lexend_deca_regular"
                     android:text="@string/namaUserLogin"
                     android:textColor="@color/white"
@@ -145,10 +145,18 @@
         android:layout_centerVertical="true"
         android:layout_marginTop="17dp">
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recyclerView_itemToday"
+        <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+            android:id="@+id/swipe"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content">
+
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerView_itemToday"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+        </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 
     </RelativeLayout>
 

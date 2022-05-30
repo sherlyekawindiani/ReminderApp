@@ -4,48 +4,96 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
-import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreException;
 import com.google.firebase.firestore.Query;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 import com.sherlyeka.reminderapp.recyclerView.AgendaAdapter;
 import com.sherlyeka.reminderapp.recyclerView.DataAgenda;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.List;
+import java.util.Date;
 
-public class TodayActivity extends AppCompatActivity {
+public class TodayActivity extends AppCompatActivity implements
+
+        SwipeRefreshLayout.OnRefreshListener
+{
 
      TextView namaUser;
      FirebaseAuth firebaseAuth;
      String user;
      RecyclerView recyclerView;
      AgendaAdapter agendaAdapter;
-     ArrayList<DataAgenda> agendaArrayList;
+     ArrayList<DataAgenda> agendaArrayList = new ArrayList<>();
      FirebaseFirestore db;
+     SwipeRefreshLayout swipeRefreshLayout;
+     DocumentSnapshot lastQuery;;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_today);
-        namaUser = findViewById(R.id.namaUser);
+        recyclerView = findViewById(R.id.recyclerView_itemToday);
+        swipeRefreshLayout = findViewById(R.id.swipe);
 
+        swipeRefreshLayout.setOnRefreshListener(this);
+
+        setUpFirebase();
+        identity();
+        recyclerView();
+        getData();
+    }
+
+    public void filterData() {
+        ArrayList<DataAgenda> futureEvents = new ArrayList<>();
+
+        Date currentDate = new Date();
+        for (DataAgenda event : agendaArrayList){
+            SimpleDateFormat spf = new SimpleDateFormat("dd MMMM yyyy");
+            Date date = null;
+            try {
+                date = spf.parse(" " + event.getTanggalAgenda());
+            } catch (ParseException e){
+
+            }
+            if (currentDate.after(date)){
+                futureEvents.add(event);
+            }
+        }
+        agendaAdapter = new AgendaAdapter(TodayActivity.this, futureEvents);
+        recyclerView.setAdapter(agendaAdapter);
+    }
+
+
+
+    public void setUpFirebase(){
         firebaseAuth = FirebaseAuth.getInstance();
-        db = FirebaseFirestore.getInstance();
         user = firebaseAuth.getUid();
+    }
 
+    public void identity(){
+        db = FirebaseFirestore.getInstance();
+        namaUser = findViewById(R.id.namaUser);
         DocumentReference documentReference = db.collection("Akun").document(user);
         documentReference.addSnapshotListener(this, new EventListener<DocumentSnapshot>() {
             @Override
@@ -53,30 +101,48 @@ public class TodayActivity extends AppCompatActivity {
                 namaUser.setText(value.getString("name"));
             }
         });
+    }
 
-        recyclerView = findViewById(R.id.recyclerView_itemToday);
-        recyclerView.setHasFixedSize(true);
+    public void recyclerView(){
+        if (agendaAdapter == null){
+            agendaAdapter = new AgendaAdapter(this, agendaArrayList);
+        }
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-
-
-        db = FirebaseFirestore.getInstance();
-        agendaArrayList = new ArrayList<>();
-        agendaAdapter = new AgendaAdapter(agendaArrayList);
         recyclerView.setAdapter(agendaAdapter);
+    }
 
-        db.collection("Agenda").orderBy("waktuAgenda", Query.Direction.ASCENDING).get()
-                .addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
-                    @Override
-                    public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
-                        List<DocumentSnapshot> list = queryDocumentSnapshots.getDocuments();
-                        for (DocumentSnapshot data:list){
-                            DataAgenda obj = data.toObject(DataAgenda.class);
-                            agendaArrayList.add(obj);
-                        }
-                        agendaAdapter.notifyDataSetChanged();
+    public void getData(){
+        db = FirebaseFirestore.getInstance();
+        CollectionReference dataCollRef = db.collection("Agenda");
+        Query dataQuery = null;
+        if (lastQuery != null){
+            dataQuery = dataCollRef.orderBy("waktuAgenda", Query.Direction.ASCENDING)
+                    .startAfter(lastQuery);
+        } else {
+            dataQuery = dataCollRef.orderBy("waktuAgenda", Query.Direction.ASCENDING);
+        }
+        dataQuery.get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                if(task.isSuccessful()){
+                    for (QueryDocumentSnapshot document:task.getResult()){
+                        DataAgenda obj = document.toObject(DataAgenda.class);
+                        agendaArrayList.add(obj);
+                    } if (task.getResult().size() != 0){
+                        lastQuery = task.getResult().getDocuments()
+                                .get(task.getResult().size() - 1);
                     }
-                });
+                    agendaAdapter.notifyDataSetChanged();
+                } else {
+                    Toast.makeText(TodayActivity.this, "Query Gagal !!" + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+    }
 
+    public void onRefresh(){
+        getData();
+        swipeRefreshLayout.setRefreshing(false);
     }
 
     public void btnYesterday(View view) {
